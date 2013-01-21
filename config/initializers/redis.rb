@@ -1,1 +1,1 @@
-$redis = Redis.new(:host => ENV['redis_host'], :port => ENV['redis_port'])
+$redis = Redis.new(:host => ENV['redis_host'], :port => ENV['redis_port']) || Redis.new(:server => ENV['redis_server'])

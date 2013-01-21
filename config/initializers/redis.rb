@@ -1,1 +1,2 @@
-$redis = Redis.new(:host => ENV['redis_host'], :port => ENV['redis_port']) || Redis.new(:server => ENV['redis_server'])
+uri = URI.parse(ENV["REDISTOGO_URL"])
+$redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)

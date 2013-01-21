@@ -64,4 +64,6 @@ Tweetstack::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  ENV['redis_server']             = 'redis://redistogo:6b0cbcb043f17c085d88256ed5776f71@slimehead.redistogo.com:9778/'
 end

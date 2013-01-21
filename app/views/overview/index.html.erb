@@ -1,0 +1,35 @@
+<div class="container-narrow">
+
+<div class="masthead">
+  <ul class="nav nav-pills pull-right">
+    <li class="active"><a href="/overview">Home</a></li>
+    <% if current_user %> 
+      <li><%= link_to "Sign out", :destroy_user_session, :method => :delete %></li>
+    <% else %>
+      <li><a href="/users/sign_in">Sign in</a></li>
+    <% end %>
+    <li><a href="/logs">Logs</a></li>
+  </ul>
+  <h3 class="muted">TweetStack</h3>
+</div>
+
+<form name="search" target="/overview" method="get">
+	<input type="text" class="search-query" placeholder="Search" name="term">
+</form>
+
+<ul class="media-list">
+	<% @tweets.each do |tweet| %>
+	  <li class="media">
+	    <a class="pull-left" href="/user/<%= tweet[:from_user] %>">
+	      <img class="media-object" src="<%= tweet[:profile_image_url] %>">
+	    </a>
+	    <div class="media-body">
+	      <h4 class="media-heading"><%= tweet[:from_user] %></h4>
+	      <p><%= tweet[:text] %></p>
+	      <p>Tweeted on <%= "#{tweet[:created_at].to_date} at #{tweet[:created_at].to_s(:time)}" %></p>
+	    </div>
+	  </li>
+  <% end %>
+</ul>
+
+</div>

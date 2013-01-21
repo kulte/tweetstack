@@ -34,4 +34,7 @@ Tweetstack::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  ENV['redis_host']               = 'localhost'
+  ENV['redis_port']               = '6379'
 end

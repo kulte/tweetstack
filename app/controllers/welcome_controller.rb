@@ -2,8 +2,7 @@ class WelcomeController < ApplicationController
 	respond_to :json
 
 	def index
-		@hello = { :hello => "world" }
-		respond_with @hello
+		if current_user then redirect_to overview_index_path end
 	end
 
 end

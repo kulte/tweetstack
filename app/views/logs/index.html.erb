@@ -1,0 +1,24 @@
+<div class="container-narrow">
+
+<div class="masthead">
+  <ul class="nav nav-pills pull-right">
+    <li><a href="/overview">Home</a></li>
+    <% if current_user %> 
+      <li><%= link_to "Sign out", :destroy_user_session, :method => :delete %></li>
+    <% else %>
+      <li><a href="/users/sign_in">Sign in</a></li>
+    <% end %>
+    <li class="active"><a href="/logs">Logs</a></li>
+  </ul>
+  <h3 class="muted">TweetStack</h3>
+</div>
+
+<ul>
+	<% @queries.each do |query| %>
+    <% unless query.empty? %>
+      <li><a href="/overview?term=<%= query %>"><%= query %></a></li>
+    <% end %>
+  <% end %>
+</ul>
+
+</div>

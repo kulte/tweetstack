@@ -3,6 +3,7 @@ Tweetstack::Application.routes.draw do
 
   resources :overview
   resources :user
+  resources :logs
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
